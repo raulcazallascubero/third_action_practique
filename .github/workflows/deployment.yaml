@@ -1,15 +1,11 @@
 name: Deploy node project
 on: push
 jobs:
-    setup:
+    pre_deploy:
         runs-on: ubuntu-latest
         steps:
         - name: Setup node
           uses: actions/setup-node@v4
-    pre_deploy:
-        needs: setup
-        runs-on: ubuntu-latest
-        steps:
         - name: Install project
           run: npm ci
         - name: Lint project
