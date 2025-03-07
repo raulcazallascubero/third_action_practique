@@ -20,6 +20,8 @@ jobs:
         needs: pre_deploy
         runs-on: ubuntu-latest
         steps:
+        - name: Get code
+          uses: actions/checkout@v4
         - name: Install project
           run: npm ci
         - name: Lint project
