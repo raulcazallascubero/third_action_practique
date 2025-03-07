@@ -1,0 +1,30 @@
+name: Deploy node project
+on: push
+jobs:
+    setup:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Setup node
+          uses: actions/setup-node@v4
+    pre_deploy:
+        needs: setup
+        runs-on: ubuntu-latest
+        steps:
+        - name: Install project
+          run: npm ci
+        - name: Lint project
+          run: npm lint
+        - name: test
+          run: npm test
+        - name: build
+          run: npm build
+    deploy:
+        needs: pre_deploy
+        runs-on: ubuntu-latest
+        steps:
+        - name: Install project
+          run: npm ci
+        - name: Lint project
+          run: echo "Deploying project...."
+
+      
