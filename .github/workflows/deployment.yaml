@@ -4,6 +4,8 @@ jobs:
     pre_deploy:
         runs-on: ubuntu-latest
         steps:
+        - name: Get code
+          uses: actions/checkout@v4
         - name: Setup node
           uses: actions/setup-node@v4
         - name: Install project
