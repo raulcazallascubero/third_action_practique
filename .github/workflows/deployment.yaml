@@ -24,7 +24,7 @@ jobs:
           uses: actions/checkout@v4
         - name: Install project
           run: npm ci
-        - name: Lint project
+        - name: Deploy project
           run: echo "Deploying project...."
 
       
